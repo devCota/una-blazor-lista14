@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<PageTitle>Currículo | Dev .NET</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="text-center p-4 bg-light rounded-3 mb-4">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="rounded-circle mb-3"
+                     width="120" />
+                <h3>Lucas Cota</h3>
+                <p class="text-muted">Desenvolvedor Fullstack</p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="mb-4">Experiência Profissional</h2>
+            
+            @foreach (Experiencia exp in MinhasExperiencias)
+            {
+                <ExperienciaCard Dados="exp" />
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Experiencia> MinhasExperiencias = new List<Experiencia>()
+    {
+        new Experiencia {
+            Empresa = "G4F",
+            Cargo = "Dev Pleno",
+            Inicio = "Dezembro 2025",
+            Descricao = "Atuação no desenvolvimento de interfaces com Python."
+        },
+        new Experiencia {
+            Empresa = "Workalove",
+            Cargo = "Dev Júnior",
+            Inicio = "Maio 2021", Fim = "Dezembro 2025",
+            Descricao = "Criação de sites institucionais e manutenção de sistemas."
+        }
+    };
+}
